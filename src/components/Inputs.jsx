@@ -1,24 +1,24 @@
+//@flow
 import * as React from 'react';
 import {EUserRoles} from '../classes/User';
 
-export interface IUserData {
+export type IUserData = {
   firstName: string;
   lastName: string;
   role: EUserRoles;
 }
 
-interface IProps {
-  onSubmit(userData: IUserData): void;
-}
-
-export default class Inputs extends React.PureComponent <IProps, IUserData> {
-  public state = {
+export default class Inputs extends React.PureComponent {
+  props: {
+    onSubmit(userData: IUserData): void;
+  }
+  state = {
     lastName: '',
     firstName: '',
     role: EUserRoles.NONE
   };
 
-  public render() {
+  render() {
     const {firstName, lastName} = this.state;
     return (
       <div>
@@ -34,11 +34,11 @@ export default class Inputs extends React.PureComponent <IProps, IUserData> {
     );
   }
 
-  private onInputChane = (prop) => (e) => {
+  onInputChane = (prop: string) => (e: any) => {
     this.setState({[prop]: e.target.value});
   }
 
-  private onSubmit = () => {
+  onSubmit = () => {
     this.props.onSubmit(this.state);
   }
 }

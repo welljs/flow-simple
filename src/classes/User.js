@@ -1,17 +1,19 @@
+//@flow
 import Person from './Person';
 
-export enum EUserRoles {
-  NONE = 'NONE',
-  ACCOUNTANT = 'ACCOUNTANT',
-  ADMIN = 'ADMIN'
-}
+export const EUserRoles = {
+  NONE: 'NONE',
+  ADMIN: 'ADMIN',
+  ACCOUNTANT: 'ACCOUNTANT'
+};
+export type TUserRoles = $Keys<typeof EUserRoles>;
 
 export interface IUser {
-  role: EUserRoles;
+  role: TUserRoles;
 }
 
 export default class User extends Person<IUser> {
-  public isAdmin() {
+  isAdmin() {
     return this.getState().role === EUserRoles.ADMIN;
   }
 }

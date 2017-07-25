@@ -20,10 +20,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(j|t)sx?$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules)/,
         include: [path.resolve(__dirname, './src')],
-        use: { loader: 'awesome-typescript-loader' },
+        use: { loader: 'babel-loader' },
       },
       {
         enforce: "pre",

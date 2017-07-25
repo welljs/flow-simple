@@ -1,6 +1,7 @@
 //@flow
 export default class BasicClass<T> {
-  data: any;
+  data: T;
+
   constructor(data: T) {
     this.data = data;
   }

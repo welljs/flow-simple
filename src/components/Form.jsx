@@ -1,22 +1,19 @@
+//@flow
 import * as React from 'react';
-import Inputs, {IUserData} from './Inputs';
+import Inputs from './Inputs.jsx';
+import type {IUserData} from './Inputs.jsx';
 import User, {EUserRoles} from '../classes/User';
 
-interface IProps {}
-
-interface IState<UserData> {
-  userData: UserData | {};
-}
-
-export default class Form extends React.PureComponent <IProps, IState<IUserData>> {
-  public state = {
+export default class Form extends React.PureComponent {
+  props: {}
+  state = {
     userData: {
       firstName: '',
       lastName: '',
       role: EUserRoles.NONE,
     }
   };
-  public render() {
+  render() {
    const user = new User(this.state.userData);
    const {role} = user.getState();
    const fullName = user.getFullName();
@@ -33,7 +30,7 @@ export default class Form extends React.PureComponent <IProps, IState<IUserData>
    );
   }
 
-  private onFormSubmit = (userData: IUserData): void => {
+  onFormSubmit = (userData: IUserData): void => {
     this.setState({userData});
   }
 }

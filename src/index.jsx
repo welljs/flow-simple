@@ -3,7 +3,7 @@
  */
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Form from './components/Form';
+import Form from './components/Form.jsx';
 
 ReactDOM.render(
   <div className="app">
