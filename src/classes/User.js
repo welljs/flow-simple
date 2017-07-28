@@ -6,6 +6,7 @@ export const EUserRoles = {
   ADMIN: 'ADMIN',
   ACCOUNTANT: 'ACCOUNTANT'
 };
+
 export type TUserRoles = $Keys<typeof EUserRoles>;
 
 export interface IUser {

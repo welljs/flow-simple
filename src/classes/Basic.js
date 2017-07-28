@@ -1,5 +1,5 @@
 //@flow
-export default class BasicClass<T> {
+export default class BasicClass<T: {}> {
   data: T;
 
   constructor(data: T) {

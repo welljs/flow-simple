@@ -5,14 +5,14 @@ import {EUserRoles} from '../classes/User';
 export type IUserData = {
   firstName: string;
   lastName: string;
-  role: EUserRoles;
+  role: $Keys<typeof EUserRoles>;
 }
 
 export default class Inputs extends React.PureComponent {
   props: {
     onSubmit(userData: IUserData): void;
   }
-  state = {
+  state: IUserData = {
     lastName: '',
     firstName: '',
     role: EUserRoles.NONE
